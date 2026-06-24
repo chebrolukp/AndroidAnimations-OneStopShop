@@ -48,16 +48,16 @@ fun Category1ModifierAnimations() {
                 .background(Color.LightGray)
                 .animateContentSize()
                 .clickable { expanded = !expanded }
-                .padding(8.dp)
+                .padding(8.dp),
         ) {
             Text(
                 if (expanded) "This is a much longer piece of text that will cause the box to expand when clicked. Click again to shrink it back down to its original size."
-                else "Click to expand me!"
+                else "Click to expand me!",
             )
         }
 
         // Other modifier: graphicsLayer for rotation
-        var rotated by remember { mutableStateOf(false) }
+        var rotated by remember { mutableStateOf(value = false) }
         val rotation by animateFloatAsState(if (rotated) 360f else 0f, label = "rotation")
         Text("Modifier.graphicsLayer (Rotation)", style = MaterialTheme.typography.titleMedium)
         Button(onClick = { rotated = !rotated }) {
@@ -68,7 +68,7 @@ fun Category1ModifierAnimations() {
                 .size(50.dp)
                 .graphicsLayer(rotationZ = rotation)
                 .background(Color.Magenta),
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.Center,
         ) {
             Text("↺", color = Color.White, fontSize = 24.sp)
         }
@@ -83,7 +83,7 @@ fun Category1ModifierAnimations() {
             Box(
                 modifier = Modifier
                     .size(100.dp, 50.dp)
-                    .background(Color.Yellow)
+                    .background(Color.Yellow),
             ) {
                 Text("I'm Visible!", modifier = Modifier.align(Alignment.Center))
             }
@@ -117,7 +117,7 @@ fun Category2ContentTransitions() {
         }
 
         // Crossfade
-        var isFirst by remember { mutableStateOf(true) }
+        var isFirst by remember { mutableStateOf(value = true) }
         Text("Crossfade", style = MaterialTheme.typography.titleMedium)
         Button(onClick = { isFirst = !isFirst }) {
             Text("Toggle Crossfade")
@@ -142,7 +142,7 @@ fun Category3ValueAnimations() {
         Text("3. Value Animations (animate*AsState)", style = MaterialTheme.typography.titleLarge)
 
         // animateDpAsState
-        var moved by remember { mutableStateOf(false) }
+        var moved by remember { mutableStateOf(value = false) }
         val offset by animateDpAsState(if (moved) 100.dp else 0.dp, label = "offset")
         Text("animateDpAsState (Offset)", style = MaterialTheme.typography.titleMedium)
         Button(onClick = { moved = !moved }) {
@@ -156,7 +156,7 @@ fun Category3ValueAnimations() {
         )
 
         // animateColorAsState
-        var isToggled by remember { mutableStateOf(false) }
+        var isToggled by remember { mutableStateOf(value = false) }
         val color by animateColorAsState(if (isToggled) Color.Red else Color.Green, label = "color")
         Text("animateColorAsState", style = MaterialTheme.typography.titleMedium)
         Button(onClick = { isToggled = !isToggled }) {
