@@ -37,7 +37,9 @@ enum class AnimationCategory(val title: String) {
     MODIFIER("Modifier Animations"),
     CONTENT_TRANSITION("Content Transitions"),
     VALUE_ANIMATION("Value Animations"),
-    ADVANCED("Advanced Animations")
+    LOW_LEVEL("Low-level APIs & Specs"),
+    LAYOUT("Layout & List Animations"),
+    GRAPHICS("Graphics & Canvas")
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -113,7 +115,9 @@ fun CategoryDetail(category: AnimationCategory) {
             AnimationCategory.MODIFIER -> Category1ModifierAnimations()
             AnimationCategory.CONTENT_TRANSITION -> Category2ContentTransitions()
             AnimationCategory.VALUE_ANIMATION -> Category3ValueAnimations()
-            AnimationCategory.ADVANCED -> Category4AdvancedAnimations()
+            AnimationCategory.LOW_LEVEL -> Category5LowLevelAnimations()
+            AnimationCategory.LAYOUT -> Category6LayoutAnimations()
+            AnimationCategory.GRAPHICS -> Category7GraphicsAnimations()
         }
     }
 }
